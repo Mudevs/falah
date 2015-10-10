@@ -9,20 +9,21 @@ var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-
 var routes = require('./app/routes.js'); 
+
 //configure the database
 var configDB = require('./config/database.js');
 
 //connect to mongoDB 
 mongoose.connect(configDB.url);
 
-require('./config/passport.js')(passport); //pass passport to be used in passport file
+require('./config/passport.js')(passport); //pass passport to the function
 
 //setup express
 app.use(morgan('dev')); //logs every request to the console
 app.use(cookieParser()); //creates req.cookies - needed for sessions
 app.use(bodyParser()); //lets us read data from forms - creates req.body object
+app.use(express.static('public'));
 
 //set up view engine 
 app.set('view engine', 'ejs'); //uses ejs for templating
