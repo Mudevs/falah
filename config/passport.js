@@ -36,7 +36,7 @@ module.exports = function(passport){
         process.nextTick(function(){
           // find a user whose email is the same as the forms email
         // we are checking to see if the user trying to login already exists
-        User.findOne({ 'local.email': email }, function(err, user){
+        User.findOne({ 'local.email': req.body.email }, function(err, user){
           // if there are any errors, return the error
           if(err)
             return done(err); 
@@ -47,8 +47,10 @@ module.exports = function(passport){
             // if there is no user with that email
                 // create the user
             var newUser = new User(); 
-            newUser.local.email = email;
-            newUser.local.password = newUser.generateHash(password);
+            newUser.local.email = req.body.email;
+            newUser.local.name = req.body.name; 
+            newUser.local.password = newUser.generateHash(req.body.password);
+
 
             //save the new user to DB 
             newUser.save(function(err, user){

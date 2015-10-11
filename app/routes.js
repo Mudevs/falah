@@ -37,8 +37,8 @@ var routes = function(app, passport){
 
     //process the sign up form 
     app.post('/signup', passport.authenticate('local-signup', {
-      successRedirect : '/profile', 
-      failureRedirect : '/signup,', 
+      successRedirect : '/dashboard', 
+      failureRedirect : '/signup', 
       failureFlash : true
     }));
 

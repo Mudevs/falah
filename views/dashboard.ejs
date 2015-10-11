@@ -10,16 +10,22 @@
 <body>
   <header class="container">
     <div class="f-admin-profile pull-right">
-    <p>Welcome: <%= user.local.email %> </p> 
+      <p>Welcome: <%= user.local.name %> </p> 
     </div>
+    <br class="clear" />
     <div class="f-search pull-right">
-      <input type="text" id="search-students">
+      <input type="text" id="search-students" />
     </div>
   </header>
+
   <div class="container">
     <h1>Dashboard</h1>
 
     <h4>Your Classes</h4>
+    <div class="f-class-container">
+    <p>Class: </p>
+    <p>No. of Students: </p>
+    </div>
 
   </div>
 
