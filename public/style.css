@@ -1,5 +1,5 @@
 body {
-  padding-top: 80px; 
+  
 }
 
 .clear {
@@ -12,6 +12,9 @@ body {
   padding: 5px;
 }
 
+.f-admin-profile {
+  margin-top: 20px;
+}
 
 
 

@@ -9,27 +9,13 @@
 </head>
 <body>
   <header class="container">
-  <h1 class="pull-left">Dashboard</h1>
-    <div class="f-admin-profile pull-right">
-      <p>Welcome: <%= user.local.name %> </p> 
-    </div>
-    <br class="clear" />
-    <div class="f-search pull-right">
-      <input type="text" id="search-students" />
-    </div>
+    <h1>Add Student</h1>
   </header>
   <div class="container">
   <div class="row">
     <div class="col-md-4">
-      <h4>Your Classes</h4>
-      <div class="f-class-container">
-      <p>Class: </p>
-      <p>No. of Students: </p>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <form action="/addclass">
-        <input type="submit" class="btn btn-default" value="Add New Class">
+      <form action="/addstudent" method="post">
+    
       </form>
     </div>
   </div>

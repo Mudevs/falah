@@ -1,4 +1,6 @@
 var routes = function(app, passport){
+var Class = require('../app/models/classes');
+
     //check if logged in function
     function isLoggedIn(req, res, next){
       // if user is authenticated in the session, carry on
@@ -60,8 +62,42 @@ var routes = function(app, passport){
       });
     });
 
+    //add new student
+    app.get('/addstudent', isLoggedIn, function(req, res){
+      //db classes check
+      var checkClass = Class.find(function(err, Class){
+        if(err) throw err;
+        console.log(Class);
+
+        if(Class.length === 0){
+          res.send('Please add a class first before adding a student');
+        } else {
+          res.send('There is at least one class in DB ' + Class[0].name);
+        }
+
+        
+      });
+
+    });
+
+    app.get('/addclass', isLoggedIn, function(req, res){
+      res.render('addclass');
+    });
+
+    app.post('/addclass', isLoggedIn, function(req, res){
+      //create new class instance
+      var newClass = new Class(); 
+      newClass.name = req.body.classname;
+
+      newClass.save(function(err, newClass){
+        if(err) throw err; 
+        console.log(newClass);
+      });
+
+      res.redirect('/dashboard')
+    });
+
 
 }
-
 
 module.exports = routes; 
