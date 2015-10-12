@@ -70,11 +70,11 @@ var Class = require('../app/models/classes');
         console.log(Class);
 
         if(Class.length === 0){
-          res.send('Please add a class first before adding a student. <a href="/addclass">Add Class</a>');
+          //req.flash('signupMessage', 'That email is already taken')
+          res.render('addclass');
         } else {
           res.send('There is at least one class in DB ' + Class[0].name);
         }
-
         
       });
 
