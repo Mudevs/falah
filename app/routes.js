@@ -71,7 +71,8 @@ var Class = require('../app/models/classes');
 
         if(Class.length === 0){
           //req.flash('signupMessage', 'That email is already taken')
-          res.render('addclass');
+          req.flash('addClassMessage', 'Add class first');
+          res.render('addclass', { message: req.flash('addClassMessage') });
         } else {
           res.send('There is at least one class in DB ' + Class[0].name);
         }

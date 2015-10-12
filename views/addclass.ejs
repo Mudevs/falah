@@ -9,6 +9,9 @@
 </head>
 <body>
   <header class="container">
+     <% if (message) { %>
+        <div class="alert alert-danger"><%= message %></div>
+    <% } %>
   </header>
   <div class="container">
   <div class="row">
