@@ -74,7 +74,7 @@ var Class = require('../app/models/classes');
           req.flash('addClassMessage', 'Add class first');
           res.render('addclass', { message: req.flash('addClassMessage') });
         } else {
-          res.send('There is at least one class in DB ' + Class[0].name);
+          res.render('addstudent');
         }
         
       });
@@ -96,6 +96,16 @@ var Class = require('../app/models/classes');
       });
 
       res.redirect('/dashboard')
+    });
+
+    //list all of the available class from classes collection in DB
+    app.get('/getclasses', isLoggedIn, function(req, res){
+      //tap into db
+      var getClass = Class.find(function(err, result){
+        if(err) throw err; 
+        console.log(result);
+        res.send(result);
+      });
     });
 
 

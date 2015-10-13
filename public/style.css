@@ -16,6 +16,24 @@ body {
   margin-top: 20px;
 }
 
+input[type="text"], input[type="tel"], input[type="password"] {
+	display: block;
+	margin-bottom: 10px;
+
+}
+
+input[type="text"] {
+	margin-bottom: 10px; 
+}
+
+.wrapper {
+	width: 200px;
+	margin: 0 auto;
+}
+
+label {
+	width: 200px;
+}
 
 
 

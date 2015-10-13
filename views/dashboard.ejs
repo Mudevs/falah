@@ -19,24 +19,25 @@
     </div>
   </header>
   <div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <h4>Your Classes</h4>
-      <div class="f-class-container">
-      <p>Class: </p>
-      <p>No. of Students: </p>
+    <div class="row">
+      <div class="col-md-4">
+        <h4>Your Classes</h4>
+        <div class="f-class-container">
+        <p>Class: </p>
+        <p>No. of Students: </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <form action="/addclass">
+          <input type="submit" class="btn btn-default" value="Add New Class">
+        </form>
+        <form action="/addstudent" method="get">
+          <input type="submit" class="btn btn-default" value="Add New Student" id="get-classes">
+        </form>
       </div>
     </div>
-    <div class="col-md-4">
-      <form action="/addclass">
-        <input type="submit" class="btn btn-default" value="Add New Class">
-      </form>
-    </div>
   </div>
-    
-
-  </div>
-
-</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
 </body>
 </html>
