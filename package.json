@@ -13,6 +13,7 @@
     "mongoose": "*",
     "morgan": "~1.0.0",
     "passport": "*",
-    "passport-local": "*"
+    "passport-local": "*", 
+    "multer": "*"
   }
 }

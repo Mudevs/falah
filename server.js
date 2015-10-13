@@ -9,7 +9,8 @@ var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var routes = require('./app/routes.js'); 
+var routes = require('./app/routes.js');
+var multer = require('multer');  
 
 //configure the database
 var configDB = require('./config/database.js');
@@ -33,6 +34,7 @@ app.use(session({ secret: 'falahstudentmanagement' }));//sets up session secret 
 app.use(passport.initialize()); //initializes passport
 app.use(passport.session()); //needed for setting up sessions for same user
 app.use(flash()); //use connect flash module for flash messages to be sent to user
+// app.use(multer());
 
 //routes for app 
 routes(app, passport);

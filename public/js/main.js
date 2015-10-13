@@ -4,23 +4,24 @@ $(document).ready(function(){
   
   });//end click function  
 
- 
-
   if(window.location.pathname === '/addstudent'){
-    console.log('Add student page');
-
     $.ajax('/getclasses')
   .done(function( data ) {
     var selectElement = document.getElementById('options');
-    var option = document.createElement('option');
+    
+    console.log(data);
 
     for(var i = 0; i<data.length; i++){
+      var option = document.createElement('option');
       option.text = data[i].name;
       option.value = data[i].name;
+      option.name = data[i].name;
+      console.log(data[i].name);
 
-      console.log(option); 
       selectElement.appendChild(option);
     }
+    
+    
       
   });      
 

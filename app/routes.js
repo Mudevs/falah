@@ -1,5 +1,6 @@
 var routes = function(app, passport){
 var Class = require('../app/models/classes');
+var Student = require('../app/models/student');
 
     //check if logged in function
     function isLoggedIn(req, res, next){
@@ -106,6 +107,30 @@ var Class = require('../app/models/classes');
         console.log(result);
         res.send(result);
       });
+    });
+
+    app.post('/addstudent', function(req, res){
+      //create new instance of student model
+      //var student = new Student(); 
+      console.log(req.body.selectoptions);
+      var studentDetails = {}; 
+
+      studentDetails.firstname = req.body.firstname; 
+      studentDetails.lastname = req.body.lastname; 
+      studentDetails.contact = req.body.contact; 
+      studentDetails.address = req.body.address; 
+      studentDetails.Parent = req.body.parent; 
+      studentDetails.medical = req.body.medical; 
+      studentDetails.Class = req.body.selectoptions; 
+
+      var newStudent = new Student(studentDetails);  
+      newStudent.save(function(err, student){
+        if (err) throw err; 
+        console.log(student); 
+       req.flash('addClassMessage', 'Add class first');
+       res.render('addclass', { message: req.flash('addClassMessage') }); 
+      });
+
     });
 
 
