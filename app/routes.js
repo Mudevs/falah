@@ -110,8 +110,6 @@ var Student = require('../app/models/student');
     });
 
     app.post('/addstudent', isLoggedIn, function(req, res){
-      //create new instance of student model
-      //var student = new Student(); 
       console.log(req.body.selectoptions);
       var studentDetails = {}; 
 
@@ -131,17 +129,27 @@ var Student = require('../app/models/student');
       });
     });
 
-    app.get('/search', isLoggedIn, function(req, res){
-      res.render('search');
+    app.post('/searchlastname', isLoggedIn, function(req, res){
+      //grab search value
+      var lastname = req.body.searchlastname;
+      //search students collection
+      Student.find({ lastname: lastname}, function (err, student) {
+      if(err) throw err;
+      console.log(student);
+      res.render('search-result', {student: student});
+      });
     });
 
-    // app.post('', isLoggedIn, function(req, res){
-    //   //query sandbox
-    //   Student.find({ lastname: 'Mohamed' }, function (err, docs) {
-    //   // docs is an array
-    //   console.log(docs);
-    //   });
-    // });
+    app.get('/student/:id', function(req, res){
+      console.log(req.params.id);
+      var id = req.params.id; 
+      Student.find({ _id:  id}, function(err, student){
+        if(err) throw err;
+        console.log(student); 
+        res.send(student);
+      }); 
+    });
+    
 }
 
 module.exports = routes; 

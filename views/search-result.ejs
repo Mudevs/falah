@@ -1,0 +1,26 @@
+<!-- views/index.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Search Reults</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="container">
+    <h1>Search Result</h1>
+  </header>
+  <div class="search-container">
+    <% if (student.length > 0) { %>
+
+        <% for(var i = 0; i <student.length; i++){ %>
+
+        <p class=""><a href="/student/<%= student[i]._id %>"><%= student[i].firstname %> <%= student[i].lastname %></a></p>
+      <% } %>    
+    <% } %>
+  </div>
+
+</div>
+</body>
+</html>
