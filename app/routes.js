@@ -127,15 +127,21 @@ var Student = require('../app/models/student');
       newStudent.save(function(err, student){
         if (err) throw err; 
         console.log(student); 
-       // req.flash('addClassMessage', 'Add class first');
-       
        res.render('addstudent', {message: 'Student added successfully'});
-    
       });
-
     });
 
+    app.get('/search', isLoggedIn, function(req, res){
+      res.render('search');
+    });
 
+    // app.post('', isLoggedIn, function(req, res){
+    //   //query sandbox
+    //   Student.find({ lastname: 'Mohamed' }, function (err, docs) {
+    //   // docs is an array
+    //   console.log(docs);
+    //   });
+    // });
 }
 
 module.exports = routes; 

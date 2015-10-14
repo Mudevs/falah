@@ -39,9 +39,25 @@ label {
 	margin-top: 10px; 
 }
 
-h1 {
+h1, h3 {
 	text-align: center;
 }
 
+.search-container {
+	width: 50%; 
+	margin: 50px auto 0 auto;
+}
 
+.inner-row {
+	width: 50%; 
+	margin: 0 auto;
+}
+
+.student-search {
+	 margin-right: 45px; 
+}
+
+.search-container h4 {
+	width: 250px;
+}
 
