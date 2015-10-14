@@ -75,7 +75,7 @@ var Student = require('../app/models/student');
           req.flash('addClassMessage', 'Add class first');
           res.render('addclass', { message: req.flash('addClassMessage') });
         } else {
-          res.render('addstudent');
+          res.render('addstudent', {message: ''});
         }
         
       });
@@ -109,7 +109,7 @@ var Student = require('../app/models/student');
       });
     });
 
-    app.post('/addstudent', function(req, res){
+    app.post('/addstudent', isLoggedIn, function(req, res){
       //create new instance of student model
       //var student = new Student(); 
       console.log(req.body.selectoptions);
@@ -127,8 +127,10 @@ var Student = require('../app/models/student');
       newStudent.save(function(err, student){
         if (err) throw err; 
         console.log(student); 
-       req.flash('addClassMessage', 'Add class first');
-       res.render('addclass', { message: req.flash('addClassMessage') }); 
+       // req.flash('addClassMessage', 'Add class first');
+       
+       res.render('addstudent', {message: 'Student added successfully'});
+    
       });
 
     });

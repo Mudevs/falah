@@ -6,14 +6,15 @@
     "body-parser": "~1.0.0",
     "connect-flash": "~0.1.1",
     "cookie-parser": "~1.0.0",
-    "ejs": "~0.8.5",
+    "ejs": "^2.3.4",
     "express": "~4.0.0",
+    "express-flash": "0.0.2",
     "express-session": "~1.0.0",
     "mongodb": "^2.0.45",
     "mongoose": "*",
     "morgan": "~1.0.0",
+    "multer": "*",
     "passport": "*",
-    "passport-local": "*", 
-    "multer": "*"
+    "passport-local": "*"
   }
 }
