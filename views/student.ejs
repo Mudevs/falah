@@ -1,0 +1,32 @@
+<!-- views/index.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Student View</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="container">
+    <h1>Student Profile</h1>
+  </header>
+  <div class="search-container">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <% if (student.length > 0) { %>
+        <p>First Name: <%= student[0].firstname %></p>
+        <p>Last Name: <%= student[0].lastname %></p>
+        <p>Contact: <%= student[0].contact %></p>
+        <p>Address: <%= student[0].address %></p>
+        <p>Medical: <%= student[0].medical %></p>
+        <p>Class: <%= student[0].Class %></p>
+        <% } %>
+      </div>
+    </div>
+  </div>    
+</div>
+</body>
+</html>

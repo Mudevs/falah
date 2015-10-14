@@ -129,11 +129,11 @@ var Student = require('../app/models/student');
       });
     });
 
-    app.post('/searchlastname', isLoggedIn, function(req, res){
+    app.post('/searchfirstname', isLoggedIn, function(req, res){
       //grab search value
-      var lastname = req.body.searchlastname;
+      var firstname = req.body.searchfirstname;
       //search students collection
-      Student.find({ lastname: lastname}, function (err, student) {
+      Student.find({ firstname: firstname}, function (err, student) {
       if(err) throw err;
       console.log(student);
       res.render('search-result', {student: student});
@@ -146,7 +146,7 @@ var Student = require('../app/models/student');
       Student.find({ _id:  id}, function(err, student){
         if(err) throw err;
         console.log(student); 
-        res.send(student);
+        res.render('student', {student: student });
       }); 
     });
     
