@@ -3,7 +3,6 @@ var app = express();
 var port = process.env.PORT || 8080; 
 var mongoose = require('mongoose');
 var passport = require('passport');
-// var flash = require('express-flash');
 var flash = require('connect-flash');
 var routes = require('./app/routes.js'); 
 var morgan = require('morgan');
