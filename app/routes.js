@@ -153,12 +153,19 @@ var Student = require('../app/models/student');
 
     app.post('/searchclass', function(req, res){
       //Get list of classes 
-      var className = req.body.searchclass; 
+      var className = req.body.searchclass;
       console.log(req.body.searchclass);
+      var ajaxCall = req.body.ajax;
       Student.find({ Class: className }, function(err, ClassName){
         if(err) throw err;
-        console.log(ClassName); 
+        console.log(ClassName);
+        //if ajax call then send back some data for redirect
+        if(ajaxCall){
+          res.json({ message: 'success', student: ClassName });
+          // res.render('class-result-view', {student: ClassName});
+        } else {
         res.render('class-result-view', {student: ClassName});
+      }
       });
     });
     

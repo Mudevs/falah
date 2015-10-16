@@ -1,23 +1,6 @@
+'use strict'
 $(document).ready(function(){
-  $('#options').click(function(){
-    
-  
-  });//end click function  
-
-
-
-  function renderClasses(element, data){
-
-    for(var i = 0; i<data.length; i++){
-      var element = document.createElement(element);
-      option.text = data[i].name;
-      option.value = data[i].name;
-      option.name = data[i].name;
-      console.log(data[i].name);
-
-      selectElement.appendChild(option);
-    }
-  }
+  var listOfClasses;
 
   if(window.location.pathname === '/addstudent'){
     $.ajax('/getclasses')
@@ -42,20 +25,29 @@ $(document).ready(function(){
     $.ajax('/getclasses')
   .done(function( data ) {
     var ulElement = document.getElementById('classes-list');
-    console.log(data);
+    //console.log(data);
     for(var i = 0; i<data.length; i++){
 
       var li = document.createElement('li');
       li.innerHTML = data[i].name;
-      console.log(li);
+      //console.log(li);
+      li.setAttribute("class", "classes-list"); 
       ulElement.appendChild(li);
 
     }
-     
+     listOfClasses = $('.classes-list');
+     console.log(listOfClasses);
+     listOfClasses.on("click", function(){
+      var classClicked = $(this).text();
+      $.post( "/searchclass", { searchclass: classClicked, ajax: true}, function(data){
+        console.log(data);
+      }); //end $post function
+      
+      });//end listOfClasses click function
+
+     // });
   });
 
   }
-  
-	
 
 });//end ready function
