@@ -1,6 +1,7 @@
 'use strict'
 $(document).ready(function(){
   var listOfClasses;
+  var studentDetails; 
 
   if(window.location.pathname === '/addstudent'){
     $.ajax('/getclasses')
@@ -41,15 +42,43 @@ $(document).ready(function(){
       var classClicked = $(this).text();
       $('#class-search-form').val(classClicked);
       $('#searchclass').trigger( "click", {searchclass: classClicked} );
-      // $.post( "/searchclass", { searchclass: classClicked, ajax: true}, function(data){
-      //   console.log(data);
-      // }); //end $post function
       
       });//end listOfClasses click function
 
      // });
   });
 
-  }
+  }//end else statement
+
+  //edit student details
+  $("#edit-details").click(function(){
+    var editableFields = document.getElementsByTagName("input");
+     studentDetails = {} ; 
+     //grab student details and attach to object
+     studentDetails['1'] = $('#firstname').text();
+     studentDetails['2'] = $('#lastname').text();
+     studentDetails['3'] = $('#contact').text(); 
+     studentDetails['4'] = $('#address').text(); 
+     studentDetails['5'] = $('#medical').text();
+     studentDetails['6'] = $('#class').text();
+
+
+     
+     $('.f-student-profile').hide();
+     $('.editable-details').toggleClass('hidden');
+
+     for(var i =1; i<editableFields.length - 1; i++){
+      editableFields[i].value = studentDetails[''+ i]; 
+     }
+
+
+  });
 
 });//end ready function
+
+
+
+
+
+
+
