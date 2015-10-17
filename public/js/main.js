@@ -39,9 +39,11 @@ $(document).ready(function(){
      console.log(listOfClasses);
      listOfClasses.on("click", function(){
       var classClicked = $(this).text();
-      $.post( "/searchclass", { searchclass: classClicked, ajax: true}, function(data){
-        console.log(data);
-      }); //end $post function
+      $('#class-search-form').val(classClicked);
+      $('#searchclass').trigger( "click", {searchclass: classClicked} );
+      // $.post( "/searchclass", { searchclass: classClicked, ajax: true}, function(data){
+      //   console.log(data);
+      // }); //end $post function
       
       });//end listOfClasses click function
 
