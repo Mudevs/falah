@@ -64,6 +64,7 @@ h1, h3 {
 #classes-list li {
 	list-style: none;
 	padding-bottom: 10px;
-	color: #428bca; 
+	color: #428bca;
+	cursor: pointer; 
 }
 
