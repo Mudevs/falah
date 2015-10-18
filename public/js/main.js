@@ -14,6 +14,8 @@ $(document).ready(function(){
       option.name = data[i].name;
       selectElement.appendChild(option);
     }
+
+    return data; 
   }
 
   //get classes list for addstudent page
@@ -52,34 +54,42 @@ $(document).ready(function(){
 
   //edit student details
   $("#edit-details").click(function(){
+    var defaultClass; 
     var defaultOption = document.getElementById('f-default');
     //get an array of all tags of type input
     var editableFields = document.getElementsByTagName("input");
      studentDetails = {} ; 
      //grab student details and attach to object
-     studentDetails['1'] = $('#firstname').text();
-     studentDetails['2'] = $('#lastname').text();
-     studentDetails['3'] = $('#contact').text(); 
-     studentDetails['4'] = $('#address').text(); 
-     studentDetails['5'] = $('#medical').text();
+     studentDetails['0'] = $('#firstname').text();
+     studentDetails['1'] = $('#lastname').text();
+     studentDetails['2'] = $('#contact').text(); 
+     studentDetails['3'] = $('#address').text(); 
+     studentDetails['4'] = $('#medical').text();
+     studentDetails['5'] = $('#student-id').text();
      studentDetails['6'] = $('#class').text();
 
      $('.f-student-profile').hide();
      $('.editable-details').toggleClass('hidden');
-
-     //we're taking one 1 from length of array because of the edit button, which is also of type input - we dont want that one
      //loop through the editableFields array and assign value of studentDetails property as the value for the input element - i.e. the students details
-     //also note that var i = 1 - because position 0 is the edit button
-     for(var i =1; i<editableFields.length - 1; i++){
+     for(var i =0; i<editableFields.length; i++){
       editableFields[i].value = studentDetails[''+ i]; 
      }
 
      $.ajax('/getclasses')
       .done(function( data ) {
-        console.log(data);
         getListOfClasses('f-classes-edit', data);
+        console.log(getListOfClasses('f-classes-edit', data));
+        var studentClasses = getListOfClasses('f-classes-edit', data); 
+
+        for(var i =0; i<studentClasses.length; i++){
+          console.log(studentClasses[i].name);
+          if(studentClasses[i].name === studentDetails['6']){
+             console.log(studentClasses[i].name);
+
+          }
+        }
         defaultOption.setAttribute("selected", "selected");
-        defaultOption.innerHTML = studentDetails['6']; 
+        //defaultOption.innerHTML = defaultClass; 
   });
 
 
