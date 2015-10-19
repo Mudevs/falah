@@ -3,7 +3,7 @@ $(document).ready(function(){
   var listOfClasses;
   var studentDetails; 
 
-  function getListOfClasses(element, data){
+  function getListOfClasses(element, data, studentDetails){
     //get select element - we'll need later to append option element
     var selectElement = document.getElementById(element);
 
@@ -12,7 +12,15 @@ $(document).ready(function(){
       option.text = data[i].name;
       option.value = data[i].name;
       option.name = data[i].name;
-      selectElement.appendChild(option);
+
+      //if match don't append duplicate option - just log to console
+      if(data[i].name === studentDetails['6']){
+        console.log('match');
+      } else {
+        selectElement.appendChild(option);
+      }
+
+      
     }
 
     return data; 
@@ -22,7 +30,7 @@ $(document).ready(function(){
   if(window.location.pathname === '/addstudent'){
     $.ajax('/getclasses')
   .done(function( data ) {
-    getListOfClasses('options', data);
+    getListOfClasses('options', data, {"6": ''});
   });      
 
   } else if(window.location.pathname === '/dashboard'){
@@ -77,19 +85,10 @@ $(document).ready(function(){
 
      $.ajax('/getclasses')
       .done(function( data ) {
-        getListOfClasses('f-classes-edit', data);
-        console.log(getListOfClasses('f-classes-edit', data));
-        var studentClasses = getListOfClasses('f-classes-edit', data); 
-
-        for(var i =0; i<studentClasses.length; i++){
-          console.log(studentClasses[i].name);
-          if(studentClasses[i].name === studentDetails['6']){
-             console.log(studentClasses[i].name);
-
-          }
-        }
+        getListOfClasses('f-classes-edit', data, studentDetails);
         defaultOption.setAttribute("selected", "selected");
-        //defaultOption.innerHTML = defaultClass; 
+        defaultOption.innerHTML = studentDetails['6'];
+         
   });
 
 
