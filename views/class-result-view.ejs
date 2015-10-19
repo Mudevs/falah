@@ -10,6 +10,16 @@
 <body>
   <header class="container">
     <h1>Search Result</h1>
+    <br class="clear" />
+      <div class="pull-right">
+          <input type="submit" class="btn btn-default" id="editclass" value="Edit Class">
+      </div>
+      <br class="clear" />
+      <div class="pull-right">
+        <form action="/deleteclass">
+          <input type="submit" class="btn btn-default" id="editclass" name="editclassBtn" value="Remove Class">
+        </form>
+      </div>
   </header>
   <div class="search-container">
     <% if (student.length > 0) { %>
@@ -19,6 +29,11 @@
       <% } %>    
     <% } %>
   </div>
+  <% if (student.length === 0) {%>
+      <h3 class="alert alert-warning" role="alert">No class found with that name</h3>
+      <%}%>
+  </div>
 </div>
+<h4><a href="/dashboard">Dashboard</h4>
 </body>
 </html>

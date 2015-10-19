@@ -42,7 +42,6 @@ $(document).ready(function(){
 
       var li = document.createElement('li');
       li.innerHTML = data[i].name;
-      //console.log(li);
       li.setAttribute("class", "classes-list"); 
       ulElement.appendChild(li);
 
@@ -53,7 +52,7 @@ $(document).ready(function(){
       $('#class-search-form').val(classClicked);
       $('#searchclass').trigger( "click", {searchclass: classClicked} );
       
-      });//end listOfClasses click function
+      });//end listOfClasses onclick function
 
      // });
   });

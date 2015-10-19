@@ -19,7 +19,6 @@
           <input type="submit" class="btn btn-default" id="logout" name="searchclassBtn" value="Logout">
         </form>
       </div>
-
   </header>
   <div class="container">
     <div class="row">
@@ -48,7 +47,7 @@
       <div class="col-md-4 student-search">
         <h4 class="f-search">Search by student first name</h4>
         <form action="/searchfirstname" method="post">
-          <input type="text" name="searchfirstname">
+          <input type="text" name="searchfirstname" required>
           <input type="submit" class="btn btn-default" name="searchstudentBtn" value="Search">
         </form>
       </div>
@@ -58,7 +57,7 @@
         <h4>Search by class</h4>
 
         <form action="/searchclass" method="post">
-          <input type="text" name="searchclass" id="class-search-form">
+          <input type="text" name="searchclass" id="class-search-form" required>
           <input type="submit" class="btn btn-default" name="searchclassBtn" value="Search" id="searchclass">
         </form>
       </div>

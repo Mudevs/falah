@@ -18,8 +18,14 @@
 
         <p class=""><a href="/student/<%= student[i]._id %>"><%= student[i].firstname %> <%= student[i].lastname %></a></p>
       <% } %>    
-    <% } %>
+    <% } %>    
   </div>
+  <div>
+    <% if (student.length === 0) {%>
+      <h3 class="alert alert-warning" role="alert">No student Found with that first name</h3>
+      <%}%>
+  </div>
+  <h4><a href="/dashboard">Dashboard</h4>
 
 </div>
 </body>

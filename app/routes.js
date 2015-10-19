@@ -137,6 +137,9 @@ var Student = require('../app/models/student');
       Student.find({ firstname: firstname}, function (err, student) {
       if(err) throw err;
       console.log(student);
+      // if(student.length < 1){
+      //   res.render('search-result', {error: 'No student found'})
+      // }
       res.render('search-result', {student: student});
       });
     });
@@ -198,11 +201,8 @@ var Student = require('../app/models/student');
           if(err) throw err;
           
           res.redirect('/dashboard'); 
-        } );
-        
-      }
-      
-      
+        } ); 
+      } 
     });
 
     app.use(function(req, res) {

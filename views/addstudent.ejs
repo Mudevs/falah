@@ -22,23 +22,23 @@
       <div class="col-md-4">
         <form action="/addstudent" method="post">
           <label>First Name</label>
-          <input type="text" name="firstname">
+          <input type="text" name="firstname" required>
           <label>Last Name</label>
-          <input type="text" name="lastname">
+          <input type="text" name="lastname" required>
           <label>Contact No.</label>
-          <input type="text" name="contact">
+          <input type="number" name="contact" required>
           <label>Address</label>
-          <input type="text" name="address">
+          <input type="text" name="address" required>
           <label>Parent</label>
-          <input type="text" name="parent">
+          <input type="text" name="parent" required>
           <label>Medical information</label>
-          <textarea name="medical"></textarea>
+          <textarea name="medical" required></textarea>
           <label>Class</label>
-          <select id="options" name="selectoptions">
+          <select id="options" name="selectoptions" required>
             <option value="" disabled selected>Select a class</option>
           </select>
           <br /> 
-          <input type="submit" value="Add Student" class="btn btn-default add-student">
+          <input type="submit" value="Add Student" class="btn btn-default add-student" id="f-add-student">
         </form>
       </div>
     </div>
