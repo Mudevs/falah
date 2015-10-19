@@ -170,6 +170,9 @@ var Student = require('../app/models/student');
     });
 
     app.post('/updatestudentdetails', isLoggedIn, function(req, res){
+      console.log('-------------------------');
+      console.log(req.body);
+      console.log('-------------------------');
       //grab new details from update
       var firstname = req.body.firstname, 
           lastname  = req.body.lastname, 
@@ -178,30 +181,30 @@ var Student = require('../app/models/student');
           medical   = req.body.medical, 
           Class     = req.body.selectoptions; 
 
-      Student.findOne({ '_id': req.body.id }, function(err, student){
-        if(err) throw err;
-        student.firstname = firstname;
-        student.lastname  = lastname;
-        student.contact   = contact;
-        student.address   = address;
-        student.medical   = medical;
-        student.Class     = Class;
-
-        student.save(function(err, updatedStudent){
+         if(req.body.updatebutton ===''){
+           Student.findOne({ '_id': req.body.id }, function(err, student){
           if(err) throw err;
-          console.log('-----------Updated student details'); 
-          console.log(updatedStudent);
-          console.log('-----------Updated student details');
-          res.redirect('/student/'+req.body.id);  
-        }); 
+          student.firstname = firstname;
+          student.lastname  = lastname;
+          student.contact   = contact;
+          student.address   = address;
+          student.medical   = medical;
+          student.Class     = Class;
 
-        // console.log('--------------------------------');
-        // console.log(user);
-        // console.log('--------------------------------'); 
-      });
-
-      // console.log('-----------');
-      // console.log(req.body.id);
+          student.save(function(err, updatedStudent){
+            if(err) throw err;
+            res.redirect('/student/'+req.body.id);  
+          }); 
+        });
+      } else {
+        Student.find({ '_id': req.body.id }).remove( function(err, removedStudent){
+          if(err) throw err;
+          
+          res.redirect('/dashboard'); 
+        } );
+        
+      }
+      
       
     });
     
