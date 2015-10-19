@@ -170,9 +170,6 @@ var Student = require('../app/models/student');
     });
 
     app.post('/updatestudentdetails', isLoggedIn, function(req, res){
-      console.log('-------------------------');
-      console.log(req.body);
-      console.log('-------------------------');
       //grab new details from update
       var firstname = req.body.firstname, 
           lastname  = req.body.lastname, 
@@ -207,6 +204,10 @@ var Student = require('../app/models/student');
       
       
     });
+
+    app.use(function(req, res) {
+    res.status(404).render('404');
+  });
     
 }
 
