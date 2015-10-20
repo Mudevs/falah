@@ -206,7 +206,7 @@ var Student = require('../app/models/student');
     });
 
     app.post('/changeclassname', isLoggedIn, function(req, res){
-      console.log(req.body.editedclassname);
+      console.log(req.body);
       res.send('Thank You');
     });
 

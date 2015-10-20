@@ -10,7 +10,7 @@
 <body>
   <header class="container">
  <% if (student.length > 0) { %>
-        <h1>Class: <%= student[0].Class %></h1>
+        <h1>Class: <span id="f-org-class"><%= student[0].Class %></span></h1>
     <br class="clear" />
       <div class="pull-right">
           <input type="submit" class="btn btn-default" id="editclass" value="Edit Class">
@@ -38,6 +38,7 @@
     <form action="/changeclassname" method="post">
       <input type="text" name="editedclassname" id="editclassbox">
       <input type="submit" value="Change Name" class="btn btn-default">
+      <input type="text" name="orignal-class-name" class="hidden" id="originalname">
     </form>
 
     <button id="f-cancel" class="btn btn-default">Cancel</button>

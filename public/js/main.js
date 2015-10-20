@@ -67,7 +67,8 @@ $(document).ready(function(){
       editClassButton.click(function(){
 
         $('.f-class-list-view').hide();
-        $('.f-edit-class-name').toggleClass('hidden'); 
+        $('.f-edit-class-name').toggleClass('hidden');
+        $('#originalname').val ($('#f-org-class').text());  
       });//end click function
 
       cancelEdit = $('#f-cancel');
