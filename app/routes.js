@@ -207,7 +207,55 @@ var Student = require('../app/models/student');
 
     app.post('/changeclassname', isLoggedIn, function(req, res){
       console.log(req.body);
-      res.send('Thank You');
+      var orgClass = req.body.originalClassName;
+      //console.log(orgClass); 
+      var newClassName = req.body.editedclassname;
+      //find class 
+      Class.findOne({"name": orgClass}, function(err, Class){
+        if(err) throw err; 
+        //and update class name
+        console.log(Class); 
+        Class.name = newClassName;
+        Class.save(function(err, newName){
+          if(err) throw err;
+          console.log(newName);
+        }); 
+      }); 
+
+      Student.find({ 'Class': orgClass }, function(err, students){
+        console.log(students);
+        for(var i =0;i<students.length; i++){
+          students[i].Class = newClassName;
+          students[i].save(function(err, student){
+          if(err) throw err;
+          console.log(student);
+  
+        }) 
+        }
+
+        res.send('Thank You');
+      });
+    });
+
+    app.post('/deleteclass', isLoggedIn, function(req, res){
+      var orgClass = req.body.originalClassName;
+      console.log(orgClass);
+
+      Student.find({ 'Class': orgClass }, function(err, students){
+        if(err) throw err;
+        for(var i =0;i<students.length;i++){
+          students[i].remove( function(err, removedStudent){
+          if(err) throw err;
+          });
+        }
+      });
+
+      Class.find({'name': orgClass}).remove(function(err, removedClass){
+        if(err) throw err; 
+        console.log(removedClass)
+      });
+
+      res.send('deleted');
     });
 
     app.use(function(req, res) {
@@ -217,3 +265,12 @@ var Student = require('../app/models/student');
 }
 
 module.exports = routes; 
+
+
+
+
+
+
+
+
+

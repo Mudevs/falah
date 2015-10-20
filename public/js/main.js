@@ -3,7 +3,8 @@ $(document).ready(function(){
   var listOfClasses;
   var studentDetails;
   var editClassButton;
-  var cancelEdit;   
+  var cancelEdit;
+  var removeClassBtn;    
 
   function getListOfClasses(element, data, studentDetails){
     //get select element - we'll need later to append option element
@@ -20,9 +21,7 @@ $(document).ready(function(){
         console.log('match');
       } else {
         selectElement.appendChild(option);
-      }
-
-      
+      } 
     }
 
     return data; 
@@ -68,7 +67,7 @@ $(document).ready(function(){
 
         $('.f-class-list-view').hide();
         $('.f-edit-class-name').toggleClass('hidden');
-        $('#originalname').val ($('#f-org-class').text());  
+        $('.originalname').val ($('#f-org-class').text());  
       });//end click function
 
       cancelEdit = $('#f-cancel');
@@ -76,6 +75,16 @@ $(document).ready(function(){
         $('.f-class-list-view').show();
         $('.f-edit-class-name').toggleClass('hidden');
 
+      });
+
+      removeClassBtn = $('#removeclass'); 
+      removeClassBtn.click(function(){
+        if(confirm('Are you sure you want to delete? This will also delete all students in the class.')){
+          $('.originalname').val ($('#f-org-class').text());
+        } else {
+          return false; 
+        }
+        
       });
     }
 

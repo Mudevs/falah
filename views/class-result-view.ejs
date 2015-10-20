@@ -17,8 +17,9 @@
       </div>
       <br class="clear" />
       <div class="pull-right">
-        <form action="/deleteclass">
-          <input type="submit" class="btn btn-default" id="editclass" name="editclassBtn" value="Remove Class">
+        <form action="/deleteclass" method="post">
+          <input type="submit" class="btn btn-default" id="removeclass" name="removeclassBtn" value="Remove Class">
+          <input type="text" name="originalClassName" class="originalname hidden">
         </form>
       </div>
   </header>
@@ -38,7 +39,7 @@
     <form action="/changeclassname" method="post">
       <input type="text" name="editedclassname" id="editclassbox">
       <input type="submit" value="Change Name" class="btn btn-default">
-      <input type="text" name="orignal-class-name" class="hidden" id="originalname">
+      <input type="text" name="originalClassName" class="originalname hidden">
     </form>
 
     <button id="f-cancel" class="btn btn-default">Cancel</button>
