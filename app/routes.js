@@ -205,6 +205,11 @@ var Student = require('../app/models/student');
       } 
     });
 
+    app.post('/changeclassname', isLoggedIn, function(req, res){
+      console.log(req.body.editedclassname);
+      res.send('Thank You');
+    });
+
     app.use(function(req, res) {
     res.status(404).render('404');
   });

@@ -1,7 +1,9 @@
 'use strict'
 $(document).ready(function(){
   var listOfClasses;
-  var studentDetails; 
+  var studentDetails;
+  var editClassButton;
+  var cancelEdit;   
 
   function getListOfClasses(element, data, studentDetails){
     //get select element - we'll need later to append option element
@@ -59,6 +61,23 @@ $(document).ready(function(){
 
   }//end else statement
 
+    else if(window.location.pathname === '/searchclass'){
+      //get edit class
+      editClassButton = $('#editclass');
+      editClassButton.click(function(){
+
+        $('.f-class-list-view').hide();
+        $('.f-edit-class-name').toggleClass('hidden'); 
+      });//end click function
+
+      cancelEdit = $('#f-cancel');
+      cancelEdit.click(function(){
+        $('.f-class-list-view').show();
+        $('.f-edit-class-name').toggleClass('hidden');
+
+      });
+    }
+
   //edit student details
   $("#edit-details").click(function(){
     var defaultClass; 
@@ -89,9 +108,8 @@ $(document).ready(function(){
         defaultOption.innerHTML = studentDetails['6'];
          
   });
-
-
   });//end edit details click function
+
 
 });//end ready function
 
