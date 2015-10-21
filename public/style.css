@@ -196,6 +196,32 @@ footer {
   margin: 0 auto 0 auto;
 }
 
+.f-change-class-name {
+  margin-right: 15px; 
+}
+
+.f-change-class-name, .f-remove-class {
+  margin-top: 50px; 
+}
+
+.f-class-settings-buttons {
+  max-width: 300px; 
+  margin: 0 auto;
+}
+
+.f-change-class-namebtn {
+  margin-bottom: 30px;
+}
+
+.f-dashboard a:hover {
+  text-decoration: none;
+}
+
+.f-dashboard a {
+  color: inherit;
+}
+
+
 
 
 

@@ -65,14 +65,14 @@ $(document).ready(function(){
       editClassButton = $('#editclass');
       editClassButton.click(function(){
 
-        $('.f-class-list-view').hide();
+        $('.f-body-container').hide();
         $('.f-edit-class-name').toggleClass('hidden');
-        $('.originalname').val ($('#f-org-class').text());  
+        $('.originalname').val($('#f-org-class').text());  
       });//end click function
 
       cancelEdit = $('#f-cancel');
       cancelEdit.click(function(){
-        $('.f-class-list-view').show();
+        $('.f-body-container').show();
         $('.f-edit-class-name').toggleClass('hidden');
 
       });
@@ -84,7 +84,6 @@ $(document).ready(function(){
         } else {
           return false; 
         }
-        
       });
     }
 
