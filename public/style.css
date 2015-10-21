@@ -13,8 +13,8 @@ body {
 
 .f-class-container {
   
-  width: 300px;
-  margin: 0;
+  width: 250px;
+  margin: 0 auto 0 auto;
   padding: 5px;
 }
 
@@ -47,10 +47,6 @@ label {
 
 .add-student {
 	margin-top: 10px; 
-}
-
-h1, h3 {
-	text-align: center;
 }
 
 .search-container {
@@ -181,6 +177,24 @@ footer {
   width: 960px;
 }
 
+.f-body-container {
+  overflow: auto;
+}
+
+.class-btn {
+  margin-right: 30px;
+ 
+}
+
+.class-btn, .student-btn {
+   margin-top: 30px;
+}
+
+
+.f-search-title {
+  width: 250px; 
+  margin: 0 auto 0 auto;
+}
 
 
 

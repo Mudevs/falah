@@ -8,69 +8,70 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<div class="f-wrapper">
-      <header>
-        <div class="f-header-container dash-header">
-          <h1 class="f-logo">Falah</h1>
-          <span>Student Information System</span>
-          <div class="f-admin-profile pull-right">
-            <p>Welcome: <%= user.local.name %> </p>
-            <form action="/logout">
-                <input type="submit" class="btn btn-warning btn-lg" id="logout" name="searchclassBtn" value="Logout">
-            </form>
+  <div class="f-wrapper">
+        <header>
+          <div class="f-header-container dash-header">
+            <h1 class="f-logo">Falah</h1>
+            <span>Student Information System</span>
+            <div class="f-admin-profile pull-right">
+              <p>Welcome: <%= user.local.name %> </p>
+              <form action="/logout">
+                  <input type="submit" class="btn btn-warning btn-lg" id="logout" name="searchclassBtn" value="Logout">
+              </form>
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
 
-      <br class="clear" />
-      <div class="container">
-        <div class="col-sm-6 col-sm-offset-2">
-          <div class="f-class-container" >
-            <h4>Classes</h4>
-            <ol class="list-classes" id="classes-list">   
-            </ol>
-          </div>
+        <br class="clear" />
+        <div class="container">
+          <h2>Dashboard</h2>
+          <div class="col-sm-6 col-sm-offset-2 f-body-container">
+            <div class="f-class-container" >
+              <h3>Classes</h3>
+              <ol class="list-classes" id="classes-list">   
+              </ol>
+            </div>
+            <div class="pull-left class-btn"> 
+              <form action="/addclass">
+                <input type="submit" class="btn btn-warning btn-lg" value="Add New Class">
+              </form>
+            </div>
+            <div class="pull-left student-btn"> 
+              <form action="/addstudent" method="get">
+                <input type="submit" class="btn btn-warning btn-lg" value="Add New Student" id="get-classes">
+              </form>
+            </div>
+            <br class="clear" />
+            <div class="f-search">
+              <div class="f-search-title">
+                <h3>Search</h3>
+              </div>
+              <div class="student-search pull-left">
+                <h4 class="f-search">Search by student first name</h4>
+                <form action="/searchfirstname" method="post">
+                  <input type="text" name="searchfirstname" required>
+                  <input type="submit" class="btn btn-warning btn-lg" name="searchstudentBtn" value="Search">
+                </form>
+              </div>
+              <div class="student-search pull-left">
+                <h4>Search by class</h4>
+                <form action="/searchclass" method="post">
+                  <input type="text" name="searchclass" id="class-search-form" required>
+                  <input type="submit" class="btn btn-warning btn-lg" name="searchclassBtn" value="Search" id="searchclass">
+                </form>
+              </div>
+            </div>
+             <br class="clear" />
+          </div><!-- end col-sm-offset-2 -->
         </div>
-    <div class="search-container">
-    <div class="row inner-row">
-       <div class="col-md-4">
-        <form action="/addclass">
-          <input type="submit" class="btn btn-default" value="Add New Class">
-        </form>
-        <form action="/addstudent" method="get">
-          <input type="submit" class="btn btn-default" value="Add New Student" id="get-classes">
-        </form>
-      </div>
-    </div>
-    <div class="row inner-row">
-      <div class="col-md-4 student-search">
-        <h4 class="f-search">Search by student first name</h4>
-        <form action="/searchfirstname" method="post">
-          <input type="text" name="searchfirstname" required>
-          <input type="submit" class="btn btn-default" name="searchstudentBtn" value="Search">
-        </form>
-      </div>
-    </div>
-    <div class="row inner-row">
-      <div class="col-md-4 class-search">
-        <h4>Search by class</h4>
-
-        <form action="/searchclass" method="post">
-          <input type="text" name="searchclass" id="class-search-form" required>
-          <input type="submit" class="btn btn-default" name="searchclassBtn" value="Search" id="searchclass">
-        </form>
-      </div>
-    </div>
+        <footer>
+          <ul class="f-footer-menu">
+            <li><a href="/" class="f-footer-homelink">Home</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+        </footer>
   </div>
-  </div>
-      <footer>
-        <ul class="f-footer-menu">
-          <li><a href="/" class="f-footer-homelink">Home</a></li>
-          <li><a href="/about">About</a></li>
-        </ul>
-      </footer>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript" src="/js/main.js"></script>
 </body>
 </html>
