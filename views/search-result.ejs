@@ -1,4 +1,4 @@
-<!-- views/index.ejs -->
+<!-- views/search-result.ejs -->
 <!doctype html>
 <html>
 <head>
@@ -8,10 +8,23 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <header class="container">
-    <h1>Search Result</h1>
+  <header>
+    <div class="f-header-container dash-header">
+      <h1 class="f-logo">Falah</h1>
+      <span>Student Information System</span>
+      <div class="f-admin-profile pull-right">
+        <p>Welcome: <%= user.local.name %> </p>
+        <form action="/logout">
+          <input type="submit" class="btn btn-warning btn-lg" id="logout" name="logoutBtn" value="Logout">
+        </form>
+      </div>
+    </div>
   </header>
-  <div class="search-container">
+  <div class="f-wrapper">
+    <button class="btn btn-warning btn-lg pull-left f-dashboard"><a href="/dashboard"><span><i class="fa fa-chevron-left"></i></span> Dashboard</a></button>
+     <br class="clear" />
+    <h1>Search Result</h1>
+    <div class="search-container">
     <% if (student.length > 0) { %>
 
         <% for(var i = 0; i <student.length; i++){ %>
@@ -25,8 +38,13 @@
       <h3 class="alert alert-warning" role="alert">No student Found with that first name</h3>
       <%}%>
   </div>
-  <h4><a href="/dashboard">Dashboard</h4>
-
+  <footer>
+    <ul class="f-footer-menu">
+      <li><a href="/" class="f-footer-homelink">Home</a></li>
+        <li><a href="/about">About</a></li>
+    </ul>
+  </footer>
+  </div>
 </div>
 </body>
 </html>

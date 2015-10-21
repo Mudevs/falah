@@ -45,13 +45,6 @@ var Student = require('../app/models/student');
       failureFlash : true
     }));
 
-    //profile page 
-    app.get('/profile', isLoggedIn, function(req, res){
-      res.render('profile', {
-        user: req.user
-      });
-    });
-
     app.get('/logout', function(req, res){
       req.logout();//this method provided by passport to logout the user
       res.redirect('/');
@@ -75,7 +68,7 @@ var Student = require('../app/models/student');
           req.flash('addClassMessage', 'Add class first');
           res.render('addclass', { message: req.flash('addClassMessage') });
         } else {
-          res.render('addstudent', {message: ''});
+          res.render('addstudent', {message: '', user: req.user});
         }
         
       });
@@ -83,7 +76,7 @@ var Student = require('../app/models/student');
     });
 
     app.get('/addclass', isLoggedIn, function(req, res){
-      res.render('addclass');
+      res.render('addclass', {message: '', user: req.user});
     });
 
     app.post('/addclass', isLoggedIn, function(req, res){
@@ -125,7 +118,7 @@ var Student = require('../app/models/student');
       newStudent.save(function(err, student){
         if (err) throw err; 
         console.log(student); 
-       res.render('addstudent', {message: 'Student added successfully'});
+       res.render('addstudent', {message: 'Student added successfully', user: req.user});
       });
     });
 
@@ -140,7 +133,7 @@ var Student = require('../app/models/student');
       // if(student.length < 1){
       //   res.render('search-result', {error: 'No student found'})
       // }
-      res.render('search-result', {student: student});
+      res.render('search-result', {student: student, user: req.user});
       });
     });
 
@@ -150,7 +143,7 @@ var Student = require('../app/models/student');
       Student.find({ _id:  id}, function(err, student){
         if(err) throw err;
         console.log(student); 
-        res.render('student', {student: student });
+        res.render('student', {student: student, user: req.user });
       }); 
     });
 
@@ -197,6 +190,7 @@ var Student = require('../app/models/student');
           }); 
         });
       } else {
+        console.log(req.body);
         Student.find({ '_id': req.body.id }).remove( function(err, removedStudent){
           if(err) throw err;
           
@@ -255,7 +249,7 @@ var Student = require('../app/models/student');
         console.log(removedClass)
       });
 
-      res.send('deleted');
+      res.redirect('/dashboard');
     });
 
     app.use(function(req, res) {

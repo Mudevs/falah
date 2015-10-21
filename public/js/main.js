@@ -107,7 +107,9 @@ $(document).ready(function(){
      $('.editable-details').toggleClass('hidden');
      //loop through the editableFields array and assign value of studentDetails property as the value for the input element - i.e. the students details
      for(var i =0; i<editableFields.length; i++){
-      editableFields[i].value = studentDetails[''+ i]; 
+      console.log(studentDetails[''+ i]); 
+      editableFields[i].value = studentDetails[''+i];
+      
      }
 
      $.ajax('/getclasses')

@@ -221,7 +221,22 @@ footer {
   color: inherit;
 }
 
+/*Add class page only- put footer further down*/
+.f-footer-add-class {
+  margin-top: 400px;
+}
 
+.addnewstudent {
+  text-align: center;
+}
+
+#f-add-student {
+  margin-top: 30px; 
+}
+
+.udpate-detailsbtn {
+  margin-bottom: 30px; 
+}
 
 
 
