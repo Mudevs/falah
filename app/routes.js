@@ -167,7 +167,7 @@ var Student = require('../app/models/student');
           res.json({ message: 'success', student: ClassName });
           // res.render('class-result-view', {student: ClassName});
         } else {
-        res.render('class-result-view', {student: ClassName});
+        res.render('class-result-view', {student: ClassName, user: req.user});
       }
       });
     });
