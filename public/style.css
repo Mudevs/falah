@@ -12,9 +12,14 @@ body {
 }
 
 .f-class-container {
-  border: 2px solid #000;
+  
   width: 300px;
+  margin: 0;
   padding: 5px;
+}
+
+.f-class-container h4 {
+  text-align: left;
 }
 
 .f-admin-profile {
@@ -67,10 +72,15 @@ h1, h3 {
 }
 
 #classes-list li {
-	list-style: none;
+	text-align: left;
 	padding-bottom: 10px;
 	color: #428bca;
-	cursor: pointer; 
+	cursor: pointer;
+  padding: 0; 
+}
+
+ol#classes-list {
+  padding: 0;
 }
 
 /*Table styling*/
@@ -134,6 +144,10 @@ tfoot td {
   float: left;
 }
 
+header {
+  overflow: auto;
+}
+
 header span {
   float: left;
   padding-top: 25px;
@@ -161,6 +175,10 @@ footer {
 .f-footer-menu li a:hover {
   text-decoration: none;
   color: #000;
+}
+
+.dash-header {
+  width: 960px;
 }
 
 

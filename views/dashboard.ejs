@@ -8,30 +8,29 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <header class="container">
-  <h1 class="pull-left">Dashboard</h1>
-    <div class="f-admin-profile pull-right">
-      <p>Welcome: <%= user.local.name %> </p>
-    </div>
-    <br class="clear" />
-    <div class="pull-right">
-        <form action="/logout">
-          <input type="submit" class="btn btn-default" id="logout" name="searchclassBtn" value="Logout">
-        </form>
-      </div>
-  </header>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <h4>Your Classes</h4>
-        <div class="f-class-container" id="classes-list">
-          <ul class="list-classes">
-            
-          </ul>
+<div class="f-wrapper">
+      <header>
+        <div class="f-header-container dash-header">
+          <h1 class="f-logo">Falah</h1>
+          <span>Student Information System</span>
+          <div class="f-admin-profile pull-right">
+            <p>Welcome: <%= user.local.name %> </p>
+            <form action="/logout">
+                <input type="submit" class="btn btn-warning btn-lg" id="logout" name="searchclassBtn" value="Logout">
+            </form>
+          </div>
         </div>
-      </div>
-     
-    </div>
+      </header>
+
+      <br class="clear" />
+      <div class="container">
+        <div class="col-sm-6 col-sm-offset-2">
+          <div class="f-class-container" >
+            <h4>Classes</h4>
+            <ol class="list-classes" id="classes-list">   
+            </ol>
+          </div>
+        </div>
     <div class="search-container">
     <div class="row inner-row">
        <div class="col-md-4">
@@ -64,7 +63,14 @@
     </div>
   </div>
   </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <footer>
+        <ul class="f-footer-menu">
+          <li><a href="/" class="f-footer-homelink">Home</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </footer>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript" src="/js/main.js"></script>
 </body>
 </html>
