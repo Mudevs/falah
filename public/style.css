@@ -140,3 +140,52 @@ header span {
   padding-left: 15px;
   font-size: 3em;
 }
+
+footer {
+  border-top: 1px solid #ccc;
+  margin-top: 100px;
+}
+
+.f-footer-menu li {
+  list-style: none;
+  display: inline-block;
+  margin-top: 15px;
+  padding-right: 15px;
+  color: rgb(167, 166, 166);
+}
+
+.f-footer-menu li a:link, .f-footer-homelink {
+  color: rgb(167, 166, 166);
+}
+
+.f-footer-menu li a:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
