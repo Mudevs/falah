@@ -2,6 +2,11 @@ body {
   
 }
 
+.f-wrapper {
+  width: 960px; 
+  margin: 0 auto 0 auto;
+}
+
 .clear {
   clear: both;
 }
@@ -116,4 +121,22 @@ tfoot td {
 
 /*Table styling*/
 
+.f-header-container {
+  width: 725px;
+  margin: 0 auto 40px auto;
+  overflow: auto;
+}
 
+.f-logo {
+  width: 180px;
+  font-size: 4.5em;
+  border-right: 5px solid #000;
+  float: left;
+}
+
+header span {
+  float: left;
+  padding-top: 25px;
+  padding-left: 15px;
+  font-size: 3em;
+}

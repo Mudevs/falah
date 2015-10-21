@@ -15,7 +15,7 @@ var Student = require('../app/models/student');
 
     //home page
     app.get('/', function(req, res){
-      res.render('index');
+      res.render('login', {message: ''});
     });
 
     //login page 
