@@ -66,7 +66,7 @@ var Student = require('../app/models/student');
         if(Class.length === 0){
           //req.flash('signupMessage', 'That email is already taken')
           req.flash('addClassMessage', 'Add class first');
-          res.render('addclass', { message: req.flash('addClassMessage') });
+          res.render('addclass', { message: req.flash('addClassMessage'), user: req.user });
         } else {
           res.render('addstudent', {message: '', user: req.user});
         }
